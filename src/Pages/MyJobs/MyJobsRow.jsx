@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const MyJobsRow = ({ job,handleDelete }) => {
 
-    const { _id, url, title, name, category, postdate, deadline, number, salary, description } = job;
+    const { _id, url, title, name, category, postdate, deadline, number, salary, email, description } = job;
 
     return (
 

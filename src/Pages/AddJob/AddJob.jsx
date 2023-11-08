@@ -21,11 +21,12 @@ const AddJob = () => {
         const deadline = form.deadline.value;
         const number = form.number.value;
         const salary = form.salary.value;
+        const email = form.email.value;
         const company = form.company.value;
         const description = form.description.value;
 
 
-        const newJob = { url, title, name, category, postdate, deadline, number,salary,company,description };
+        const newJob = { url, title, name, category, postdate, deadline, number,salary,email,company,description };
         console.log(newJob);
 
 
@@ -128,11 +129,18 @@ const AddJob = () => {
                                     </div>
                                 </div>
                                 <div className="flex gap-3 w-full">
-                                    <div className="form-control w-full">
+                                    <div className="form-control w-1/2">
                                         <label className="label">
                                             <span className="label-text font-bold"> Company Logo</span>
                                         </label>
                                         <input type="text" name="company" placeholder="Enter the img url of company logo" className="input input-bordered" required />
+                                    </div>
+
+                                    <div className="form-control w-1/2">
+                                        <label className="label">
+                                            <span className="label-text font-bold">User Email</span>
+                                        </label>
+                                        <input type="email" name="email" placeholder="User Email" defaultValue={user?.email}  className="input input-bordered" required />
                                     </div>
                                    
                                 </div>

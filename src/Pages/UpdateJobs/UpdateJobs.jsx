@@ -9,7 +9,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 const UpdateJobs = () => {
     const job = useLoaderData();
 const{user} = useContext(AuthContext);
-    const { _id, url, title, name, category, postdate, deadline, number, salary,company, description } = job;
+    const { _id, url, title, name, category, postdate, deadline, number, salary,company,email, description } = job;
 
     const handleUpdateJob = e => {
         e.preventDefault();

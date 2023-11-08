@@ -35,7 +35,7 @@ const AllJobs = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {jobs.map((alljob) => <JobsRow
+                        {jobs?.length > 0 && jobs?.map((alljob) => <JobsRow
 
                             key={alljob._id}
                             alljob={alljob}></JobsRow>

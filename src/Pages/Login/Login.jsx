@@ -22,7 +22,7 @@ const Login = () => {
             console.log(result.user);
             navigate(location?.state ? location.state : "/")
         })
-       
+
     }
 
     const handleLogIn = e => {
@@ -41,17 +41,19 @@ const Login = () => {
 
                     // console.log(user);
                     // setSuccess("user loged successfully");
-                    const loggedInUser = { email }
+                    const user = { email }
 
-                    axios.post('http://localhost:5000/jwt', loggedInUser, { withCredentials: true })
-                    .then(res => {
-                        console.log(res.data)
-                        if (res.data.success) {
-                            navigate(location?.state ? location.state : "/")
-                        }
-                    })
+                    axios.post('https://dream-catalyst-server.vercel.app/jwt', user, { withCredentials: true })
+                        .then(res => {
+                            console.log(res.data)
+                            if (res.data.success) {
+                                setSuccess("user loged successfully");
 
-                   
+                                navigate(location?.state ? location.state : "/")
+                            }
+                        })
+
+
                 })
                 .catch(error => {
                     console.error(error);
@@ -104,9 +106,9 @@ const Login = () => {
                     <div className=" flex justify-center items-center gap-5 mt-10">
                         <h2 className="pl-16">Login with:</h2>
 
-                      
-                            <img onClick={handleClickGoogle} className="w-8" src="https://i.ibb.co/fMBfZC6/google.jpg" alt="" />
-                        
+
+                        <img onClick={handleClickGoogle} className="w-8" src="https://i.ibb.co/fMBfZC6/google.jpg" alt="" />
+
 
                     </div>
 

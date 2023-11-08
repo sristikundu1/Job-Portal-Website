@@ -4,21 +4,22 @@ import NavBar from "../../Components/NavBar/NavBar";
 import { AuthContext } from "../../Providers/AuthProvider";
 import MyJobsRow from "./MyJobsRow";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const MyJobs = () => {
     const { user } = useContext(AuthContext);
     const [myjobs, setMyJobs] = useState([]);
 
-    const url = ` https://dream-catalyst-server.vercel.app/jobs?name=${user.displayName}`
+    const url = ` https://dream-catalyst-server.vercel.app/jobs?email=${user.email}`
 
     useEffect(() => {
-        // axios.get(url, {withCredentials: true})
-        // .then(res => {
-        //     setMyJobs(res.data)
-        // })
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setMyJobs(data))
+        axios.get(url, {withCredentials: true})
+        .then(res => {
+            setMyJobs(res.data)
+        })
+        // fetch(url)
+        //     .then(res => res.json())
+        //     .then(data => setMyJobs(data))
     }, [url])
 
     const handleDelete = id => {

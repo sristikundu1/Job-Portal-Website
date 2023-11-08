@@ -4,22 +4,23 @@ import Table from 'react-bootstrap/Table';
 import AppliedJobRow from "./AppliedJobRow";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import axios from "axios";
 
 const AppliedJobs = () => {
 
     const { user } = useContext(AuthContext);
     const [appliedJobs, setAppliedJobs] = useState([]);
 
-    const url = ` https://dream-catalyst-server.vercel.app/appliedJobs?name=${user.displayName}`
+    const url = ` https://dream-catalyst-server.vercel.app/appliedJobs?email=${user.email}`
 
     useEffect(() => {
-        // axios.get(url, {withCredentials: true})
-        // .then(res => {
-        //     setMyJobs(res.data)
-        // })
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setAppliedJobs(data))
+        axios.get(url, {withCredentials: true})
+        .then(res => {
+            setAppliedJobs(res.data)
+        })
+        // fetch(url)
+        //     .then(res => res.json())
+        //     .then(data => setAppliedJobs(data))
     }, [url])
 
 
