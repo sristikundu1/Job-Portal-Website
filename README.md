@@ -9,3 +9,13 @@ Currently, two official plugins are available:
 
 # Dream Catalyst website
 
+- This website is a Job portal website.
+- There are 4 types of jobs.
+- user can add job from add job page.
+- user can apply for a job in clicking apply button.
+- user canot apply for a job that he/she posted.
+- user can see all available jobs.
+
+ 
+
+
