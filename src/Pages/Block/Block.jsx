@@ -31,7 +31,7 @@ const Block = () => {
             id: 3,
             title: 'Explantion Of My Code',
             img: 'https://i.ibb.co/JxpKmmf/blog4.png',
-            content: 'Content for Item 3',
+            content: 'This is a job portal.Here i use usestate and useEffect for handle the state.i deploy my site in the firebase.and deploy server site in vercel.so change the url of local host.',
 
         },
     ];
