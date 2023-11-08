@@ -1,0 +1,101 @@
+{
+    "all": {
+      "tabName": "All Jobs",
+      "cards": []
+    },
+    "tab1": {
+      "tabName": "On Site Job",
+      "cards": [
+        { "id": 1,
+        "name": "Bob Johnson",
+        "title": "Data Analyst",
+        "postingDate": "2023-11-03",
+        "deadline": "2023-11-17",
+        "salaryRange": "70,000 - 90,000",
+        "applicants": 42},
+        { "id": 2,
+        "name": "Emily Davis",
+        "title": "Graphic Designer",
+        "postingDate": "2023-11-04",
+        "deadline": "2023-11-18",
+        "salaryRange": "50,000 - 70,000",
+        "applicants": 25 }
+      ]
+    },
+    "tab2": {
+      "tabName": "Remote Job",
+      "cards": [
+        {   "id": 3,
+        "name": "John Doe",
+        "title": "Software Engineer",
+        "postingDate": "2023-11-01",
+        "deadline": "2023-11-15",
+        "salaryRange": "80,000 - 100,000",
+        "applicants": 50},
+        {"id": 4,
+        "name": "Alice Smith",
+        "title": "Marketing Specialist",
+        "postingDate": "2023-11-02",
+        "deadline": "2023-11-16",
+        "salaryRange": "60,000 - 80,000",
+        "applicants": 35}
+      ]
+    },
+    "tab3": {
+      "tabName": "Hybrid",
+      "cards": [
+        { "id": 5,
+        "name": "Michael Wilson",
+        "title": "Product Manager",
+        "postingDate": "2023-11-05",
+        "deadline": "2023-11-19",
+        "salaryRange": "90,000 - 120,000",
+        "applicants": 60 },
+        {  "id": 6,
+        "name": "Olivia Brown",
+        "title": "Sales Representative",
+        "postingDate": "2023-11-06",
+        "deadline": "2023-11-20",
+        "salaryRange": "45,000 - 60,000",
+        "applicants": 30}
+      ]
+    },
+    "tab4": {
+      "tabName": "Part Time",
+      "cards": [
+        { "id": 7,
+        "name": "Daniel Lee",
+        "title": "Customer Support Specialist",
+        "postingDate": "2023-11-07",
+        "deadline": "2023-11-21",
+        "salaryRange": "40,000 - 55,000",
+        "applicants": 28},
+        {"id": 8,
+        "name": "Sophia White",
+        "title": "HR Manager",
+        "postingDate": "2023-11-08",
+        "deadline": "2023-11-22",
+        "salaryRange": "75,000 - 95,000",
+        "applicants": 38},
+        {
+            "id": 9,
+            "name": "David Johnson",
+            "title": "Web Developer",
+            "postingDate": "2023-11-09",
+            "deadline": "2023-11-23",
+            "salaryRange": "65,000 - 85,000",
+            "applicants": 48
+        },
+        {
+            "id": 10,
+            "name": "Emma Wilson",
+            "title": "Content Writer",
+            "postingDate": "2023-11-10",
+            "deadline": "2023-11-24",
+            "salaryRange": "55,000 - 75,000",
+            "applicants": 33
+        }
+      ]
+    }
+  }
+  

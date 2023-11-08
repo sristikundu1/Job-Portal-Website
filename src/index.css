@@ -1,0 +1,6 @@
+/* style for googlefont */
+@import url('https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
