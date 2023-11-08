@@ -3,7 +3,7 @@ const WorkingProgress = () => {
     return (
         <div className="max-w-6xl mx-auto py-4">
             <h2 className="font-love text-5xl text-center my-16 text-[#363062]">How it work</h2>
-            <div className="grid grid-cols-3 gap-4 mb-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-8">
                 <div className="border-2 rounded-s-full border-[#ED7D31]  space-y-4 p-14 pl-16">
                     <img className="w-28 rounded-full" src="https://i.ibb.co/rxLKh46/wp1.png" alt="" />
                     <h2 className="font-bold text-xl">Register Your Account</h2>
