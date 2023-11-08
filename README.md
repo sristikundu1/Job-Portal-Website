@@ -16,6 +16,6 @@ Currently, two official plugins are available:
 - user canot apply for a job that he/she posted.
 - user can see all available jobs.
 
- 
+ [Visit Live Link](https://dream-catalyst.web.app/appliedjob/)
 
 
