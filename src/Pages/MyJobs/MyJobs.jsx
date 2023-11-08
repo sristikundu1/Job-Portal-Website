@@ -9,7 +9,7 @@ const MyJobs = () => {
     const { user } = useContext(AuthContext);
     const [myjobs, setMyJobs] = useState([]);
 
-    const url = `http://localhost:5000/jobs?name=${user.displayName}`
+    const url = ` https://dream-catalyst-server.vercel.app/jobs?name=${user.displayName}`
 
     useEffect(() => {
         // axios.get(url, {withCredentials: true})
@@ -34,7 +34,7 @@ const MyJobs = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/jobs/${id}`, {
+                fetch(` https://dream-catalyst-server.vercel.app/jobs/${id}`, {
                     method: 'DELETE'
 
                 })

@@ -10,7 +10,7 @@ const AppliedJobs = () => {
     const { user } = useContext(AuthContext);
     const [appliedJobs, setAppliedJobs] = useState([]);
 
-    const url = `http://localhost:5000/appliedJobs?name=${user.displayName}`
+    const url = ` https://dream-catalyst-server.vercel.app/appliedJobs?name=${user.displayName}`
 
     useEffect(() => {
         // axios.get(url, {withCredentials: true})
@@ -35,7 +35,6 @@ const AppliedJobs = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Job Title</th>
-                            <th>Posted By</th>
                             <th>Job Category</th>
                             <th>Job Posting Date</th>
                             <th>Application Deadline</th>

@@ -41,12 +41,12 @@ const Routes = createBrowserRouter([
             {
                 path:"/alljob",
                 element:<AllJobs></AllJobs>,
-                loader: () => fetch('http://localhost:5000/jobs')
+                loader: () => fetch('https://dream-catalyst-server.vercel.app/jobs')
             },
             {
                 path:"/jobdetail/:id",
                 element:<PrivateRoutes><JobDetails></JobDetails></PrivateRoutes>,
-                loader:({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
+                loader:({params}) => fetch(`https://dream-catalyst-server.vercel.app/jobs/${params.id}`)
             },
             {
                 path:"/addjob",
@@ -59,7 +59,7 @@ const Routes = createBrowserRouter([
             {
                 path:"/updatejob/:id",
                 element:<UpdateJobs></UpdateJobs>,
-                loader:({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
+                loader:({params}) => fetch(` https://dream-catalyst-server.vercel.app/jobs/${params.id}`)
             },
             {
                 path:"/appliedjob",

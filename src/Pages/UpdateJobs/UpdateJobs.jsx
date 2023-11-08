@@ -32,7 +32,7 @@ const{user} = useContext(AuthContext);
         console.log(updatedJob);
 
 
-        fetch(`http://localhost:5000/jobs/${_id}`, {
+        fetch(` https://dream-catalyst-server.vercel.app/jobs/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': "application/json"

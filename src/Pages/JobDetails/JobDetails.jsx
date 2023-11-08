@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Footer from "../../Components/Footer/Footer";
 import NavBar from "../../Components/NavBar/NavBar";
 import { AuthContext } from "../../Providers/AuthProvider";
@@ -14,8 +14,8 @@ const JobDetails = () => {
 
     const { _id, url, title, name, category, postdate, deadline, number, salary, company, description } = jobdetails;
 
-    const currentDate = Date.now();
-    const deadlineDate = new Date(deadline).getTime();
+    // const currentDate = Date.now();
+    // const deadlineDate = new Date(deadline).getTime();
     // console.log(deadlineDate,currentDate)
 
     const handleApplyJob = e => {
@@ -28,22 +28,10 @@ const JobDetails = () => {
         const email = form.email.value;
         const resume = form.resume.files[0].name;
         
-        // const url = form.url.value;
-        // const title = form.title.value;
-        // const category = form.category.value;
-        // const postdate = form.postdate.value;
-        // const deadline = form.deadline.value;
-        // const number = form.number.value;
-        // const salary = form.salary.value;
-        // const company = form.company.value;
-        // const description = form.description.value;
-       
-
-
-        const appliedJob = { name, email, resume, url, title, category, postdate, deadline, number,salary,company,description };
+        const appliedJob = {name, email, resume, url, title, category, postdate, deadline, number,salary,company,description };
         console.log(appliedJob);
 
-        fetch("http://localhost:5000/appliedJobs", {
+        fetch(" https://dream-catalyst-server.vercel.app/appliedJobs", {
             method: 'POST',
             headers: {
                 'content-type': "application/json"
@@ -82,14 +70,14 @@ const JobDetails = () => {
     return (
         <div>
             <NavBar></NavBar>
-            <h2 className="font-love text-5xl text-center mb-4 text-[#219C90] mb-16">Job Detail</h2>
+            <h2 className="font-love text-5xl text-center  text-[#219C90] mb-16">Job Detail</h2>
             <img className="w-screen h-[400px] rounded-lg" src={jobdetails?.company} alt="" />
             <div className="max-w-5xl mx-auto">
                 <div className="flex mt-9 justify-between items-center gap-4">
                     <img className="rounded-full w-96" src={url} alt="" />
                     <h2 className="font-bold text-6xl text-[#3AA6B9]">{title}</h2>
                 </div>
-                <h2 className="font-love text-5xl text-center mb-4 text-[#FF9EAA] mb-10 mt-16">Job Description</h2>
+                <h2 className="font-love text-5xl text-center  text-[#FF9EAA] mb-10 mt-16">Job Description</h2>
                 <p className="text-center font-medium text-[#6554AF]">{description}</p>
                 <div className="flex mt-9 justify-around items-center gap-4">
                     <p className="flex justify-center items-center gap-2"> <BiDollarCircle className="text-3xl font-bold"></BiDollarCircle> <span className="font-bold text-[#7E1717]">Salary:</span> {salary}/month</p>

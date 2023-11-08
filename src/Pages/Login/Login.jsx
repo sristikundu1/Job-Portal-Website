@@ -3,6 +3,7 @@ import { BsEnvelopeAt, BsLockFill } from "react-icons/bs";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import axios from "axios";
 
 const Login = () => {
     const { googleSignIn } = useContext(AuthContext);
@@ -38,7 +39,19 @@ const Login = () => {
                     console.log(result.user);
                     setSuccess("user loged successfully");
 
-                    navigate(location?.state ? location.state : "/")
+                    // console.log(user);
+                    // setSuccess("user loged successfully");
+                    const loggedInUser = { email }
+
+                    axios.post('http://localhost:5000/jwt', loggedInUser, { withCredentials: true })
+                    .then(res => {
+                        console.log(res.data)
+                        if (res.data.success) {
+                            navigate(location?.state ? location.state : "/")
+                        }
+                    })
+
+                   
                 })
                 .catch(error => {
                     console.error(error);
