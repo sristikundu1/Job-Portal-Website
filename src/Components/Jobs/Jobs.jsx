@@ -37,7 +37,7 @@ const Jobs = ({ jobData }) => {
 
                         {Object.keys(jobData).map((tabKey, index) => (
                             <TabPanel key={index}>
-                                <div className="grid grid-cols-2 gap-4">
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                                     {tabKey === 'all' ? (
                                         Object.keys(jobData).reduce((allCards, key) => {
                                             if (key !== 'all' && jobData[key].cards) {
