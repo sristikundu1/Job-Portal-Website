@@ -13,8 +13,9 @@ const Jobs = ({ jobData }) => {
         setTabIndex(index);
     };
 
-
+    // const categories = ["All", ...new Set(jobData.map((job) => job.category))];
     return (
+
         <div>
 
             <div className=" flex items-center justify-center">
@@ -45,11 +46,11 @@ const Jobs = ({ jobData }) => {
                                             }
                                             return allCards;
                                         }, []).map((card) => (
-                                            <Card key={card.id} id={card.id}  name={card.name} title={card.title}  postingDate={card.postingDate} deadline={card.deadline} salaryRange={card.salaryRange} applicants={card.applicants} />
+                                            <Card key={card.id} id={card.id} name={card.name} title={card.title} postingDate={card.postingDate} deadline={card.deadline} salaryRange={card.salaryRange} applicants={card.applicants} />
                                         ))
                                     ) : (
                                         jobData[tabKey].cards.map((card) => (
-                                            <Card key={card.id}id={card.id}  name={card.name} title={card.title}  postingDate={card.postingDate} deadline={card.deadline} salaryRange={card.salaryRange} applicants={card.applicants}  />
+                                            <Card key={card.id} id={card.id} name={card.name} title={card.title} postingDate={card.postingDate} deadline={card.deadline} salaryRange={card.salaryRange} applicants={card.applicants} />
                                         ))
                                     )}
                                 </div>
@@ -65,7 +66,10 @@ const Jobs = ({ jobData }) => {
                 </Tabs>
             </div>
 
-        </div>
+         
+
+        </div >
+
     );
 };
 

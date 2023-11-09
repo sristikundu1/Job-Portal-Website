@@ -24,6 +24,7 @@ const Routes = createBrowserRouter([
                 path:"/",
                 element:<Home></Home>,
                 loader: () => fetch("/jobs.json")
+                //  loader: () => fetch('https://dream-catalyst-server.vercel.app/jobs')
 
             },
             {

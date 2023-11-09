@@ -27,8 +27,8 @@ const JobDetails = () => {
         const name = form.name.value;
         const email = form.email.value;
         const resume = form.resume.files[0].name;
-        
-        const appliedJob = {name, email, resume, url, title, category, postdate, deadline, number,salary,company,description };
+
+        const appliedJob = { name, email, resume, url, title, category, postdate, deadline, number, salary, company, description };
         console.log(appliedJob);
 
         fetch(" https://dream-catalyst-server.vercel.app/appliedJobs", {
@@ -56,15 +56,15 @@ const JobDetails = () => {
 
     const showToast = () => {
         Swal.fire({
-          icon: 'warning',
-          title: 'Toast Message',
-          text: 'You Canot apply for this job',
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 3000, // Adjust the duration of the toast
+            icon: 'warning',
+            title: 'Toast Message',
+            text: 'You Canot apply for this job',
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000, // Adjust the duration of the toast
         });
-      };
+    };
 
 
     return (
@@ -83,15 +83,28 @@ const JobDetails = () => {
                     <p className="flex justify-center items-center gap-2"> <BiDollarCircle className="text-3xl font-bold"></BiDollarCircle> <span className="font-bold text-[#7E1717]">Salary:</span> {salary}/month</p>
                     <p className="flex justify-center items-center gap-2"> <BsPeopleFill className="text-3xl font-bold"></BsPeopleFill> <span className="font-bold text-[#7E1717]">Number Of Applicants:</span> {number}</p>
                 </div>
-                {/* && currentDate > deadlineDate */}
                 {
-                     name !== user.displayName? <>
-                     <button onClick={() => document.getElementById('my_modal_1').showModal()} className="btn w-44 bg-[#CE5A67] capitalize rounded-3xl text-2xl my-16 text-white ml-[400px]">Apply</button>
-                    </> :  
-                    <>
-                   
-                    <button onClick={showToast} className="btn w-44 bg-[#CE5A67] capitalize rounded-3xl text-2xl my-16 text-white ml-[400px]">Apply</button>
-                    </>
+                    name !== user.displayName ? (
+                        <button
+                            onClick={() => {
+                                if (new Date() > new Date(deadline)) {
+                                    showToast("The application deadline has passed.");
+                                } else if (name === user.displayName) {
+                                    showToast("You cannot apply for your own job.");
+                                } else {
+                                    document.getElementById('my_modal_1').showModal();
+                                }
+                            }}
+                            className="btn w-44 bg-[#CE5A67] capitalize rounded-3xl text-2xl my-16 text-white ml-[400px]"
+                        >
+                            Apply
+                        </button>
+                    )
+                        :
+                        <>
+
+                            <button onClick={showToast} className="btn w-44 bg-[#CE5A67] capitalize rounded-3xl text-2xl my-16 text-white ml-[400px]">Apply</button>
+                        </>
                 }
 
                 <dialog id="my_modal_1" className="modal">
@@ -102,21 +115,21 @@ const JobDetails = () => {
                                 <label className="label">
                                     <span className="label-text font-bold">Email</span>
                                 </label>
-                                <input type="email" defaultValue={user?.email} name="email"  placeholder="email" className="input input-bordered" required />
+                                <input type="email" defaultValue={user?.email} name="email" placeholder="email" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text font-bold">Name</span>
                                 </label>
-                                <input type="text" defaultValue={user?.displayName} name="name"  placeholder="name" className="input input-bordered" required />
-                               
+                                <input type="text" defaultValue={user?.displayName} name="name" placeholder="name" className="input input-bordered" required />
+
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Resume</span>
                                 </label>
                                 <input type="file" name="resume" className="input input-bordered" required />
-                               
+
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn capitalize bg-[#E57C23]">Submit</button>
