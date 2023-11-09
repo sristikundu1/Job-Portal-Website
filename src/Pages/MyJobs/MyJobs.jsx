@@ -5,10 +5,25 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import MyJobsRow from "./MyJobsRow";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const MyJobs = () => {
     const { user } = useContext(AuthContext);
     const [myjobs, setMyJobs] = useState([]);
+
+
+
+    const updateJobInState = (updatedJob) => {
+        // Find the index of the job to be updated
+        const index = myjobs.findIndex((job) => job._id === updatedJob._id);
+
+        if (index !== -1) {
+            // Update the state with the modified job
+            myjobs[index] = updatedJob;
+            setMyJobs([...myjobs]); // Create a new array to trigger re-render
+        }
+    };
+
 
     const url = ` https://dream-catalyst-server.vercel.app/jobs?email=${user.email}`
 
@@ -22,7 +37,7 @@ const MyJobs = () => {
         //     .then(data => setMyJobs(data))
     }, [url])
 
-    const handleDelete = id => {
+    const handleDelete = _id => {
 
         Swal.fire({
             title: 'Are you sure?',
@@ -35,7 +50,7 @@ const MyJobs = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(` https://dream-catalyst-server.vercel.app/jobs/${id}`, {
+                fetch(` https://dream-catalyst-server.vercel.app/jobs/${_id}`, {
                     method: 'DELETE'
 
                 })
@@ -52,7 +67,7 @@ const MyJobs = () => {
 
                             //delete from the UI
 
-                            const remainingUsers = myjobs.filter(myjob => myjob._id !== id);// dont delete which id is not matched
+                            const remainingUsers = myjobs.filter(myjob => myjob._id !== _id);// dont delete which id is not matched
                             setMyJobs(remainingUsers);
                         }
                     })
@@ -66,6 +81,9 @@ const MyJobs = () => {
 
     return (
         <div>
+             <Helmet>
+                <title>DreamCatalyst | Myjobs</title>
+            </Helmet>
             <NavBar></NavBar>
 
             <div>
@@ -100,6 +118,7 @@ const MyJobs = () => {
                                         key={job._id}
                                          job={job}
                                          handleDelete={handleDelete}
+                                         updateJobInState={updateJobInState}
                                         >
 
                                     </MyJobsRow>

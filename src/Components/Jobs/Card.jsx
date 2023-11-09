@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
-const Card = ({ id, name, title, postingDate, deadline, salaryRange, applicants }) => {
+const Card = ({ id, name, title,category, postingDate, deadline, salaryRange, applicants }) => {
 
     const { user } = useContext(AuthContext);
 

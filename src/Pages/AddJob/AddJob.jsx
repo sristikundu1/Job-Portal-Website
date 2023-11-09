@@ -3,6 +3,7 @@ import Footer from "../../Components/Footer/Footer";
 import NavBar from "../../Components/NavBar/NavBar";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 
 const AddJob = () => {
@@ -53,6 +54,9 @@ const AddJob = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>DreamCatalyst | AddJob</title>
+            </Helmet>
             <NavBar></NavBar>
             <div>
                 <h2 className="font-love text-5xl text-center mb-4 text-[#004225]">Add Job</h2>

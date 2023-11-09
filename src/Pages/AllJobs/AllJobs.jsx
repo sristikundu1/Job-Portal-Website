@@ -5,6 +5,7 @@ import { useLoaderData } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
 import Table from 'react-bootstrap/Table';
 import JobsRow from "./JobsRow";
+import { Helmet } from "react-helmet-async";
 
 const AllJobs = () => {
 
@@ -12,6 +13,9 @@ const AllJobs = () => {
 
     return (
         <div>
+             <Helmet>
+                <title>DreamCatalyst | AllJob</title>
+            </Helmet>
             <NavBar></NavBar>
             <div>
                 <h2 className="font-love text-5xl text-center mb-4 text-[#219C90]">Browse Our Jobs</h2>

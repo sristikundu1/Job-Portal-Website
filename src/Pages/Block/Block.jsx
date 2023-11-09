@@ -1,6 +1,8 @@
-import { Helmet } from "react-helmet";
+
+import { Helmet } from "react-helmet-async";
 import Footer from "../../Components/Footer/Footer";
 import NavBar from "../../Components/NavBar/NavBar";
+
 
 
 const Block = () => {
@@ -44,10 +46,11 @@ const Block = () => {
     };
     return (
         <div>
-            <NavBar></NavBar>
-            <Helmet>
-                <title>Home | Block</title>
+             <Helmet>
+                <title>DreamCatalyst | Blog</title>
             </Helmet>
+            <NavBar></NavBar>
+           
             <div className="max-w-6xl mx-auto py-4">
                 <img className="w-screen h-[600px]" src="https://i.ibb.co/RzXn0wF/blog.jpg" alt="" />
                 <div className="bg-base-200 mt-16 p-7 rounded-lg flex flex-col justify-center items-center max-w-xl mx-auto">

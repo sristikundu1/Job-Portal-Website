@@ -4,12 +4,13 @@ import NavBar from "../../Components/NavBar/NavBar";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 
-const UpdateJobs = () => {
+const UpdateJobs = ( ) => {
     const job = useLoaderData();
-const{user} = useContext(AuthContext);
-    const { _id, url, title, name, category, postdate, deadline, number, salary,company,email, description } = job;
+    const { user } = useContext(AuthContext);
+    const { _id, url, title, name, category, postdate, deadline, number, salary, company, email, description } = job;
 
     const handleUpdateJob = e => {
         e.preventDefault();
@@ -28,7 +29,7 @@ const{user} = useContext(AuthContext);
         const description = form.description.value;
 
 
-        const updatedJob = { url, title, name, category, postdate, deadline, number,salary,company,description };
+        const updatedJob = { url, title, name, category, postdate, deadline, number, salary, company, description };
         console.log(updatedJob);
 
 
@@ -43,19 +44,32 @@ const{user} = useContext(AuthContext);
             .then(data => {
                 console.log("Inside post response", data);
                 if (data.modifiedCount > 0) {
+                    // props.updateJobInState(updatedJob);
                     Swal.fire({
                         title: 'success!',
                         text: 'job updated successfully',
                         icon: 'success',
                         confirmButtonText: 'Ok'
                     })
+
+                 
                     form.reset();
+
+                   
+
+                    // const remaining = myjobs.filter((myjob => myjob._id !== _id));
+                    // const updated = myjobs.find(myjob => myjob._id === _id) 
+                    // const  newjobs = [updated, ...remaining];
+                    // setMyJobs(newjobs);
                 }
             })
     }
 
     return (
         <div>
+             <Helmet>
+                <title>DreamCatalyst | UpdateJobs</title>
+            </Helmet>
             <NavBar></NavBar>
 
             <div>
@@ -124,7 +138,7 @@ const{user} = useContext(AuthContext);
                                         <label className="label">
                                             <span className="label-text font-bold">Applicants Number</span>
                                         </label>
-                                        <input type="number" name="number"  placeholder="Job Applicants Number" defaultValue={0} className="input input-bordered" required />
+                                        <input type="number" name="number" placeholder="Job Applicants Number" defaultValue={0} className="input input-bordered" required />
                                     </div>
                                     <div className="form-control w-1/2">
                                         <label className="label">
@@ -139,9 +153,9 @@ const{user} = useContext(AuthContext);
                                         <label className="label">
                                             <span className="label-text font-bold"> Company Logo</span>
                                         </label>
-                                        <input type="text" name="company" placeholder="Enter the img url of company logo" className="input input-bordered" required />
+                                        <input type="text" name="company" defaultValue={company} placeholder="Enter the img url of company logo" className="input input-bordered" required />
                                     </div>
-                                   
+
                                 </div>
                                 <div className="flex gap-3 w-full">
                                     <div className="form-control w-full">

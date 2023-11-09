@@ -5,6 +5,7 @@ import AppliedJobRow from "./AppliedJobRow";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const AppliedJobs = () => {
 
@@ -14,10 +15,10 @@ const AppliedJobs = () => {
     const url = ` https://dream-catalyst-server.vercel.app/appliedJobs?email=${user.email}`
 
     useEffect(() => {
-        axios.get(url, {withCredentials: true})
-        .then(res => {
-            setAppliedJobs(res.data)
-        })
+        axios.get(url, { withCredentials: true })
+            .then(res => {
+                setAppliedJobs(res.data)
+            })
         // fetch(url)
         //     .then(res => res.json())
         //     .then(data => setAppliedJobs(data))
@@ -26,6 +27,11 @@ const AppliedJobs = () => {
 
     return (
         <div>
+
+            <Helmet>
+                <title>DreamCatalyst | AppliedJob</title>
+            </Helmet>
+            
             <NavBar></NavBar>
 
             <div>
@@ -40,8 +46,8 @@ const AppliedJobs = () => {
                             <th>Job Posting Date</th>
                             <th>Application Deadline</th>
                             <th>Salary</th>
-                           <th>Job Description</th>
-                           <th>Resume</th>
+                            <th>Job Description</th>
+                            <th>Resume</th>
                             <th></th>
                         </tr>
                     </thead>

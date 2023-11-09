@@ -6,6 +6,7 @@ import { useLoaderData } from "react-router-dom";
 import { BsPeopleFill } from "react-icons/bs";
 import { BiDollarCircle } from "react-icons/bi";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const JobDetails = () => {
@@ -69,6 +70,9 @@ const JobDetails = () => {
 
     return (
         <div>
+             <Helmet>
+                <title>DreamCatalyst | JobDetails</title>
+            </Helmet>
             <NavBar></NavBar>
             <h2 className="font-love text-5xl text-center  text-[#219C90] mb-16">Job Detail</h2>
             <img className="w-screen h-[400px] rounded-lg" src={jobdetails?.company} alt="" />

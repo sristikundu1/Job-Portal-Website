@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
     const { googleSignIn } = useContext(AuthContext);
@@ -64,6 +65,9 @@ const Login = () => {
 
     return (
         <div className="max-w-6xl mx-auto">
+             <Helmet>
+                <title>DreamCatalyst | Login</title>
+            </Helmet>
             <div className="flex justify-between py-10">
                 <h2 className="font-love font-bold text-3xl">DreamCatalyst</h2>
                 <p className="font-medium text-xl">New User? <Link className="text-[#7743DB]" to="/register">Please Register</Link>

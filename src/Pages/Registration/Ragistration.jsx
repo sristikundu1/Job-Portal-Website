@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const Ragistration = () => {
 
@@ -28,15 +29,15 @@ const Ragistration = () => {
             return;
         }
         else {
-            register(email, password,name,photo).then((user) => {
+            register(email, password, name, photo).then((user) => {
                 console.log("User registered successfully:", user);
                 setSuccess("User created successfully");
                 // You can access user.displayName and user.photoURL here
-              })
-              .catch((error) => {
-                console.error('Registration error:', error);
-                setRegisterError(error.message);
-              });
+            })
+                .catch((error) => {
+                    console.error('Registration error:', error);
+                    setRegisterError(error.message);
+                });
         }
 
 
@@ -45,7 +46,9 @@ const Ragistration = () => {
 
     return (
         <div>
-
+            <Helmet>
+                <title>DreamCatalyst | Registration</title>
+            </Helmet>
 
             <div
                 className="h-screen relative"
