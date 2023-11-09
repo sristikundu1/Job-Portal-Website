@@ -12,6 +12,17 @@ const UpdateJobs = ( ) => {
     const { user } = useContext(AuthContext);
     const { _id, url, title, name, category, postdate, deadline, number, salary, company, email, description } = job;
 
+    //  const updateJobInState = (updatedJob) => {
+    //     // Find the index of the job to be updated
+    //     const index = myjobs.findIndex((job) => job._id === updatedJob._id);
+
+    //     if (index !== -1) {
+    //         // Update the state with the modified job
+    //         myjobs[index] = updatedJob;
+    //         setMyJobs([...myjobs]); // Create a new array to trigger re-render
+    //     }
+    // };
+
     const handleUpdateJob = e => {
         e.preventDefault();
 

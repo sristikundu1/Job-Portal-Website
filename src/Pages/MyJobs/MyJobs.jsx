@@ -11,20 +11,6 @@ const MyJobs = () => {
     const { user } = useContext(AuthContext);
     const [myjobs, setMyJobs] = useState([]);
 
-
-
-    const updateJobInState = (updatedJob) => {
-        // Find the index of the job to be updated
-        const index = myjobs.findIndex((job) => job._id === updatedJob._id);
-
-        if (index !== -1) {
-            // Update the state with the modified job
-            myjobs[index] = updatedJob;
-            setMyJobs([...myjobs]); // Create a new array to trigger re-render
-        }
-    };
-
-
     const url = ` https://dream-catalyst-server.vercel.app/jobs?email=${user.email}`
 
     useEffect(() => {
@@ -118,7 +104,7 @@ const MyJobs = () => {
                                         key={job._id}
                                          job={job}
                                          handleDelete={handleDelete}
-                                         updateJobInState={updateJobInState}
+                                        //  updateJobInState={updateJobInState}
                                         >
 
                                     </MyJobsRow>

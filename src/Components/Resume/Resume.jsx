@@ -3,7 +3,7 @@
 const Resume = () => {
     return (
         <div className="max-w-5xl mx-auto py-4">
-            <div className="bg-[#113946] rounded-3xl h-80 p-10 flex justify-between ">
+            <div className="bg-[#113946] rounded-3xl h-[600px] grid grid-cols-1 lg:h-80 p-10 lg:flex lg:justify-between ">
                 <div className="text-white space-y-4">
                     <h2 className="font-bold text-4xl">Do not just find.be found <br /> put your CV in front of employers</h2>
                     <span id="selectedResume"></span>

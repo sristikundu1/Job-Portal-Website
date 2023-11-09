@@ -11,8 +11,8 @@ const Card = ({ id, name, title,category, postingDate, deadline, salaryRange, ap
 
     const cardStyle = {
         border: '2px solid #ccc',
-        width: '400px',
-        height: "320px",
+      
+        height:'320px',
         padding: '30px',
         margin: '10px',
         borderRadius: '15px',
@@ -30,7 +30,7 @@ const Card = ({ id, name, title,category, postingDate, deadline, salaryRange, ap
 
     return (
         <div>
-            <div style={cardStyle} className="text-center space-y-4 bg-[#FFF6F6]">
+            <div style={cardStyle} className="text-center space-y-4 h-[400px] lg:w-[400px] bg-[#FFF6F6]">
                 <h2>By: <span className="font-medium italic">{name}</span> </h2>
                 <p className="font-bold text-2xl">{title}</p>
                 <div className="flex justify-between">

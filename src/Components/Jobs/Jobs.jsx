@@ -18,9 +18,9 @@ const Jobs = ({ jobData }) => {
 
         <div>
 
-            <div className=" flex items-center justify-center">
+            <div className="flex items-center justify-center">
                 <Tabs selectedIndex={tabIndex} onSelect={handleTabSelect}>
-                    <TabList className="flex flex-row items-center justify-center space-x-4">
+                    <TabList className="flex flex-row items-center justify-center gap-4">
                         {Object.keys(jobData).map((tabKey, index) => (
                             <Tab
                                 key={index}
@@ -34,7 +34,7 @@ const Jobs = ({ jobData }) => {
                         ))}
                     </TabList>
 
-                    <div className="p-16 ">
+                    <div className="pt-6 ">
 
                         {Object.keys(jobData).map((tabKey, index) => (
                             <TabPanel key={index}>
