@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { BsPersonCircle } from "react-icons/bs";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import logo from '../../assets/Logo1.jpg'
 
 const NavBar = () => {
     const [isHovered, setIsHovered] = useState(false);
@@ -114,7 +115,7 @@ const NavBar = () => {
                         </ul>
                     </div>
                     <div className="lg:flex">
-                        <img className="w-12 " src="https://i.ibb.co/LNsTCdc/Logo1.jpg" alt="" />
+                        <img className="w-12 " src={logo} alt="" />
                         <h2 className="btn btn-ghost normal-case text-xl font-love">DreamCatalyst</h2>
                     </div>
                 </div>

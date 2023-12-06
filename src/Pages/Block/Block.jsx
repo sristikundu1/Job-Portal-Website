@@ -2,6 +2,11 @@
 import { Helmet } from "react-helmet-async";
 import Footer from "../../Components/Footer/Footer";
 import NavBar from "../../Components/NavBar/NavBar";
+// import blog from "../../assets/blog.jpg"
+// import blog1 from "../../assets/blog1.png"
+// import blog2 from "../../assets/blog2.jpg"
+// import blog3 from "../../assets/blog3.jpg"
+// import blog from "../../assets/blog4.jpg"
 
 
 

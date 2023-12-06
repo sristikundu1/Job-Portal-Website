@@ -1,11 +1,12 @@
 import { BsFillPhoneFill,BsEnvelope,BsGeoAlt,BsTwitter, BsFacebook, BsLinkedin, BsGoogle } from "react-icons/bs";
+import logo from '../../assets/Logo1.jpg'
 
 const Footer = () => {
     return (
         <div>
             <footer className="footer p-10 bg-[#EBF3E8] text-base-content pt-10">
                 <aside>
-                <img className="w-12 " src="https://i.ibb.co/LNsTCdc/Logo1.jpg" alt="" />
+                <img className="w-12 " src={logo} alt="" />
                     <p className="folt-bold font-love text-2xl">DreamCatalyst</p>
                     <p className="font-bold text-xl">Most complete job portal</p>
                 </aside>

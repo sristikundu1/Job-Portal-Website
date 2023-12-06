@@ -1,16 +1,17 @@
 // import NavBar from "../../Components/NavBar/NavBar";
-import { useLoaderData } from "react-router-dom";
+// import { useLoaderData } from "react-router-dom";
 import Banner from "../../Components/Banner/Banner";
 import Footer from "../../Components/Footer/Footer";
-import Jobs from "../../Components/Jobs/Jobs";
+// import Jobs from "../../Components/Jobs/Jobs";
 import WorkingProgress from "../../Components/WorkingProgress/WorkingProgress";
 import Resume from "../../Components/Resume/Resume";
 import { Helmet } from "react-helmet-async";
+import AllJobs from "../../Components/Jobs/AllJobs";
 
 
 const Home = () => {
-    const jobData = useLoaderData();
-
+    // const jobData = useLoaderData();
+    // jobData ={jobData}
     return (
         <div>
              <Helmet>
@@ -18,7 +19,8 @@ const Home = () => {
             </Helmet>
            {/* <NavBar></NavBar> */}
            <Banner></Banner>
-           <Jobs jobData ={jobData}></Jobs>
+           {/* <Jobs></Jobs> */}
+           <AllJobs></AllJobs>
            <WorkingProgress></WorkingProgress>
            <Resume></Resume>
            <Footer></Footer>

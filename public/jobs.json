@@ -1,9 +1,12 @@
 {
-    "all": {
-      "tabName": "All Jobs",
-      "cards": []
-    },
-    "tab1": {
+  "tab1": {
+    "tabName": "all",
+    "cards": [
+
+    ]
+  },
+   
+    "tab2": {
       "tabName": "On Site Job",
       "cards": [
         { "id": 1,
@@ -22,7 +25,7 @@
         "applicants": 25 }
       ]
     },
-    "tab2": {
+    "tab3": {
       "tabName": "Remote Job",
       "cards": [
         {   "id": 3,
@@ -41,7 +44,7 @@
         "applicants": 35}
       ]
     },
-    "tab3": {
+    "tab4": {
       "tabName": "Hybrid",
       "cards": [
         { "id": 5,
@@ -60,7 +63,7 @@
         "applicants": 30}
       ]
     },
-    "tab4": {
+    "tab5": {
       "tabName": "Part Time",
       "cards": [
         { "id": 7,

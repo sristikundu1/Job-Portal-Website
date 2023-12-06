@@ -6,12 +6,9 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
-// import ReactToPdf from 'react-to-pdf';
-// import { useRef } from 'react';
-
+import Button from 'react-bootstrap/Button';
 
 const AppliedJobs = () => {
-
 
     const { user } = useContext(AuthContext);
     const [appliedJobs, setAppliedJobs] = useState([]);
@@ -23,11 +20,9 @@ const AppliedJobs = () => {
             .then(res => {
                 setAppliedJobs(res.data)
             })
-        // fetch(url)
-        //     .then(res => res.json())
-        //     .then(data => setAppliedJobs(data))
+        
     }, [url])
-    // const componentRef = useRef();
+
 
     return (
         <div>
@@ -70,12 +65,6 @@ const AppliedJobs = () => {
             </div>
 
             <Footer></Footer>
-{/* 
-            <ReactToPdf targetRef={componentRef} filename="applied_jobs.pdf">
-                {({ toPdf }) => (
-                    <button onClick={toPdf}>Generate PDF</button>
-                )}
-            </ReactToPdf> */}
 
         </div>
 

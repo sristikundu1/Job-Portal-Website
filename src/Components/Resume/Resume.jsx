@@ -1,4 +1,4 @@
-
+import getjob from "../../assets/getjob.jpg"
 
 const Resume = () => {
     return (
@@ -19,7 +19,7 @@ const Resume = () => {
                 </div>
 
                 <div>
-                    <img className="h-64 rounded-lg" src="https://i.ibb.co/sFnHDj7/getjob.webp" alt="" />
+                    <img className="h-64 rounded-lg" src={getjob} alt="" />
                 </div>
 
 

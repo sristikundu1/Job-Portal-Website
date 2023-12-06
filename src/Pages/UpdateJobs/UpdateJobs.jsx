@@ -10,18 +10,7 @@ import { Helmet } from "react-helmet-async";
 const UpdateJobs = ( ) => {
     const job = useLoaderData();
     const { user } = useContext(AuthContext);
-    const { _id, url, title, name, category, postdate, deadline, number, salary, company, email, description } = job;
-
-    //  const updateJobInState = (updatedJob) => {
-    //     // Find the index of the job to be updated
-    //     const index = myjobs.findIndex((job) => job._id === updatedJob._id);
-
-    //     if (index !== -1) {
-    //         // Update the state with the modified job
-    //         myjobs[index] = updatedJob;
-    //         setMyJobs([...myjobs]); // Create a new array to trigger re-render
-    //     }
-    // };
+    const { _id, url, title,  category, postdate, deadline,  salary, company, description } = job;
 
     const handleUpdateJob = e => {
         e.preventDefault();
@@ -37,10 +26,11 @@ const UpdateJobs = ( ) => {
         const number = form.number.value;
         const salary = form.salary.value;
         const company = form.company.value;
+        const email = form.email.value;
         const description = form.description.value;
 
 
-        const updatedJob = { url, title, name, category, postdate, deadline, number, salary, company, description };
+        const updatedJob = { url, title, name, category, postdate, deadline, number, salary, company, email,description };
         console.log(updatedJob);
 
 
@@ -55,7 +45,6 @@ const UpdateJobs = ( ) => {
             .then(data => {
                 console.log("Inside post response", data);
                 if (data.modifiedCount > 0) {
-                    // props.updateJobInState(updatedJob);
                     Swal.fire({
                         title: 'success!',
                         text: 'job updated successfully',
@@ -66,12 +55,6 @@ const UpdateJobs = ( ) => {
                  
                     form.reset();
 
-                   
-
-                    // const remaining = myjobs.filter((myjob => myjob._id !== _id));
-                    // const updated = myjobs.find(myjob => myjob._id === _id) 
-                    // const  newjobs = [updated, ...remaining];
-                    // setMyJobs(newjobs);
                 }
             })
     }
@@ -160,11 +143,18 @@ const UpdateJobs = ( ) => {
                                     </div>
                                 </div>
                                 <div className="flex gap-3 w-full">
-                                    <div className="form-control w-full">
+                                    <div className="form-control w-1/2">
                                         <label className="label">
                                             <span className="label-text font-bold"> Company Logo</span>
                                         </label>
                                         <input type="text" name="company" defaultValue={company} placeholder="Enter the img url of company logo" className="input input-bordered" required />
+                                    </div>
+
+                                    <div className="form-control w-1/2">
+                                        <label className="label">
+                                            <span className="label-text font-bold">User Email</span>
+                                        </label>
+                                        <input type="email" name="email" placeholder="User Email" defaultValue={user?.email}  className="input input-bordered" required />
                                     </div>
 
                                 </div>

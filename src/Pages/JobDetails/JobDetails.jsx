@@ -15,10 +15,6 @@ const JobDetails = () => {
 
     const { _id, url, title, name, category, postdate, deadline, number, salary, company, description } = jobdetails;
 
-    // const currentDate = Date.now();
-    // const deadlineDate = new Date(deadline).getTime();
-    // console.log(deadlineDate,currentDate)
-
     const handleApplyJob = e => {
 
         e.preventDefault();
@@ -32,7 +28,7 @@ const JobDetails = () => {
         const appliedJob = { name, email, resume, url, title, category, postdate, deadline, number, salary, company, description };
         console.log(appliedJob);
 
-        fetch(" https://dream-catalyst-server.vercel.app/appliedJobs", {
+        fetch("https://dream-catalyst-server.vercel.app/appliedJobs", {
             method: 'POST',
             headers: {
                 'content-type': "application/json"
@@ -43,17 +39,36 @@ const JobDetails = () => {
             .then(data => {
                 console.log("Inside post response", data);
                 if (data.insertedId) {
-                    Swal.fire({
-                        title: 'success!',
-                        text: 'You have applied for a job successfully',
-                        icon: 'success',
-                        confirmButtonText: 'Ok'
+                    fetch(` http://localhost:5000/updatejobs/${_id}`, {
+                        method: 'PUT',
+                        headers: {
+                            'content-type': "application/json"
+                        },
+                        body: JSON.stringify({number})
                     })
-                    form.reset();
+
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log("Inside post response", data);
+                            if (data.modifiedCount > 0) {
+
+                                Swal.fire({
+                                    title: 'success!',
+                                    text: 'You have applied for a job successfully',
+                                    icon: 'success',
+                                    confirmButtonText: 'Ok'
+                                })
+                                form.reset();
+                            }
+
+
+                        })
                 }
             })
 
     }
+
+
 
     const showToast = () => {
         Swal.fire({
@@ -70,7 +85,7 @@ const JobDetails = () => {
 
     return (
         <div>
-             <Helmet>
+            <Helmet>
                 <title>DreamCatalyst | JobDetails</title>
             </Helmet>
             <NavBar></NavBar>
