@@ -39,7 +39,7 @@ const JobDetails = () => {
             .then(data => {
                 console.log("Inside post response", data);
                 if (data.insertedId) {
-                    fetch(` http://localhost:5000/updatejobs/${_id}`, {
+                    fetch(` https://dream-catalyst-server.vercel.app/updatejobs/${_id}`, {
                         method: 'PUT',
                         headers: {
                             'content-type': "application/json"
