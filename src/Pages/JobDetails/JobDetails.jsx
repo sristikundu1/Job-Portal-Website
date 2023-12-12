@@ -83,6 +83,47 @@ const JobDetails = () => {
     };
 
 
+
+    const handleAddReview = e => {
+        e.preventDefault();
+
+        const form = e.target;
+
+        
+        const title = form.title.value;
+        const name = form.name.value;
+        const email = form.email.value;
+        const review = form.review.value;
+     
+
+
+        const newreview = { title, name, email, review };
+        console.log(newreview);
+
+
+        fetch(" https://dream-catalyst-server.vercel.app/reviews", {
+            method: 'POST',
+            headers: {
+                'content-type': "application/json"
+            },
+            body: JSON.stringify(newreview)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log("Inside post response", data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'success!',
+                        text: 'Thank you for your Review',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                    form.reset();
+                }
+            })
+    }
+
+
     return (
         <div>
             <Helmet>
@@ -162,6 +203,54 @@ const JobDetails = () => {
                         </div>
                     </div>
                 </dialog>
+
+                <div>
+                    <h2 className="font-love text-5xl text-center text-[#219C90] mb-6">Review</h2>
+                    <p className="text-center font-medium">Empower Your Career Journey: Share Your Insights, Shape Opportunities</p>
+
+
+                    <form onSubmit={handleAddReview} className="card-body">
+                                <div className="flex gap-3 w-full">
+                                    
+                                    <div className="form-control w-full">
+                                        <label className="label">
+                                            <span className="label-text font-bold">Job Title</span>
+                                        </label>
+                                        <input type="text" defaultValue={title} name="title" placeholder="Enter Job title" className="input input-bordered" required />
+                                    </div>
+                                </div>
+                                <div className="flex gap-3 w-full">
+                                    <div className="form-control w-1/2">
+                                        <label className="label">
+                                            <span className="label-text font-bold">User Name</span>
+                                        </label>
+                                        <input type="text" name="name" defaultValue={user?.displayName} placeholder="Enter the img url of job banner" className="input input-bordered" required />
+                                    </div>
+                                    <div className="form-control w-1/2">
+                                        <label className="label">
+                                            <span className="label-text font-bold">User Email</span>
+                                        </label>
+                                        <input type="email" name="email" placeholder="User Email" defaultValue={user?.email}  className="input input-bordered" required />
+                                    </div>
+                                </div>
+                               
+                                   
+                               
+                                <div className="flex gap-3 w-full">
+                                    <div className="form-control w-full">
+                                        <label className="label">
+                                            <span className="label-text font-bold">Your Review</span>
+                                        </label>
+                                        <textarea className="border rounded-lg p-4" name="review" placeholder="Write your review" id="" cols="30" rows="10"></textarea>
+                                    </div>
+                                   
+                                </div>
+                                <div className="form-control mt-6">
+                                    <button className="btn bg-[#FFA33C] capitalize text-black font-bold text-2xl">Review</button>
+                                </div>
+                            </form>
+
+                </div>
 
 
 

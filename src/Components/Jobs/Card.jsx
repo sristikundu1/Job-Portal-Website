@@ -63,7 +63,7 @@ const Card = ({ jobitem }) => {
         else {
             Swal.fire({
                 title: "You are not login",
-                text: "Please login to add to the cart!",
+                text: "Please login to see the details!",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",

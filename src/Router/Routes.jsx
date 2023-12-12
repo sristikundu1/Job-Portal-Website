@@ -12,6 +12,8 @@ import AddJob from "../Pages/AddJob/AddJob";
 import MyJobs from "../Pages/MyJobs/MyJobs";
 import UpdateJobs from "../Pages/UpdateJobs/UpdateJobs";
 import AppliedJobs from "../Pages/AppliedJobs/AppliedJobs";
+import Reviews from "../Pages/Reviews/Reviews";
+import Profile from "../Pages/Profile/Profile";
 
 
 const Routes = createBrowserRouter([
@@ -45,6 +47,11 @@ const Routes = createBrowserRouter([
                 loader: () => fetch('https://dream-catalyst-server.vercel.app/jobs')
             },
             {
+                path:"/reviews",
+                element:<Reviews></Reviews>,
+                loader: () => fetch('https://dream-catalyst-server.vercel.app/reviews')
+            },
+            {
                 path:"/jobdetail/:id",
                 element:<PrivateRoutes><JobDetails></JobDetails></PrivateRoutes>,
                 loader:({params}) => fetch(`https://dream-catalyst-server.vercel.app/jobs/${params.id}`)
@@ -65,6 +72,10 @@ const Routes = createBrowserRouter([
             {
                 path:"/appliedjob",
                 element:<PrivateRoutes><AppliedJobs></AppliedJobs></PrivateRoutes>
+            },
+            {
+                path:"/profile",
+                element:<PrivateRoutes><Profile></Profile></PrivateRoutes>
             }
         ]
     }

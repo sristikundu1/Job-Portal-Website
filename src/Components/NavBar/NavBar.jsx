@@ -52,6 +52,16 @@ const NavBar = () => {
             </li>
             <li>
                 <NavLink
+                    to="/reviews"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "text-[#1F1717] bg-[#FFA33C] italic" : ''
+                    }
+                >
+                    Reviews
+                </NavLink>
+            </li>
+            <li>
+                <NavLink
                     to="/block"
                     className={({ isActive, isPending }) =>
                         isPending ? "pending " : isActive ? "text-[#1F1717] bg-[#FFA33C] italic" : ''
@@ -92,6 +102,16 @@ const NavBar = () => {
                             Applied Jobs
                         </NavLink>
                     </li>
+                    <li>
+                        <NavLink
+                            to="/profile"
+                            className={({ isActive, isPending }) =>
+                                isPending ? "pending " : isActive ? "text-[#1F1717] bg-[#FFA33C] italic" : ''
+                            }
+                        >
+                            Profile
+                        </NavLink>
+                    </li>
 
                 </>:
                 <>
@@ -103,7 +123,7 @@ const NavBar = () => {
 
 
     return (
-        <div className="max-w-6xl mx-auto py-4">
+        <div className="max-w-7xl mx-auto py-4">
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
