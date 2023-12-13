@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import NavBar from "../../Components/NavBar/NavBar";
+import { Link } from "react-router-dom";
 
 
 const Profile = () => {
@@ -23,8 +25,8 @@ const Profile = () => {
         const category = form.category.value;
         const salary = form.salary.value;
         const type = form.type.value;
-      
-        const newProfile = {  name,email, number,address,photo,resume,education,role,category,salary ,type };
+
+        const newProfile = { name, email, number, address, photo, resume, education, role, category, salary, type };
         console.log(newProfile);
 
 
@@ -54,6 +56,7 @@ const Profile = () => {
             <Helmet>
                 <title>DreamCatalyst | Reviews</title>
             </Helmet>
+            <NavBar></NavBar>
             <div>
                 <h2 className="font-love text-5xl text-center mb-4 text-[#219C90]">Build Your Professional Profile: Let us Get Started!</h2>
 
@@ -166,13 +169,15 @@ const Profile = () => {
                                 </div>
                             </div>
                         </div>
-                
-                <div className="form-control mt-6">
-                    <button className="btn bg-[#FFA33C] capitalize text-black font-bold text-2xl">Submit</button>
+
+                        <div className="form-control mt-6">
+                            <button className="btn bg-[#FFA33C] capitalize text-black font-bold text-2xl">Submit</button>
+                        </div>
+                    </form>
                 </div>
-            </form>
-        </div>
             </div >
+
+           
 
         </div >
     );
